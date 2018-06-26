@@ -10,7 +10,7 @@ func main() {
 	app := iris.New()
 	app.Logger().SetLevel("debug")
 
-	app.RegisterView(iris.HTML("./app/views", ".html"))
+	app.RegisterView(iris.HTML("./app/views", ".html").Layout("shared/layout.html").Reload(true))
 
 	app.StaticWeb("/public", "./public")
 

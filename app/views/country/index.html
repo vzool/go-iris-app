@@ -1,14 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Country Index</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="public/main.css" />
-    <script src="public/main.js"></script>
-</head>
-<body>
-    <h1>Country Index</h1>
-</body>
-</html>
+<h1>Country Index</h1>
+<hr/>
+<h3>{{.Title}}</h3>
+<h3>{{.MyMessage}}</h3>
+<h3>{{.Tee}}</h3>
+
+<style>
+.odd{
+    background: orange;
+    color: black;
+    font-size: 1.5em;
+}
+.even{
+    background: rgb(0, 121, 235);
+    color: white;
+    font-size: 1.5em;
+}
+</style>
+
+<ul>
+    {{ range $i, $x := .Tee }}
+        {{ if $i % 2 == 0 }}
+            <li class="even">{{ $i }} - {{ $x }}</li>
+        {{ else }}
+            <li class="odd">{{ $i }} - {{ $x }}</li>
+        {{ end }}
+    {{ end }}
+</ul>

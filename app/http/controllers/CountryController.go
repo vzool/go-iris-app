@@ -40,10 +40,21 @@ func (c *countryController) Get(ctx iris.Context) mvc.Result {
 	return hero.View{
 		Name: "country/index.html",
 		Data: map[string]interface{}{
-			"Title":     "Hello Page",
+			"PageTitle": "Hello Page",
 			"MyMessage": "Welcome to my awesome website",
+			"Tee": []interface{}{
+				"Abdelaziz",
+				"Fatimah",
+				"Fatin",
+				"Faris",
+				"Ali",
+				"Ahmed",
+				"Omer",
+			},
 		},
 	}
+	// ctx.ViewData("PageTitle", "CountryIndex")
+	// ctx.View("country/index.html")
 }
 
 func (c *countryController) Create(ctx iris.Context) string {
